@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Piece from './Piece.js';
 
 class App extends Component {
   render() {
@@ -8,6 +8,16 @@ class App extends Component {
 
       <div className="App">
         <h1>Ben Designed This...</h1>
+        <Piece
+          imageSrc="http://placekitten.com/300/500"
+          projectLink="http://www.benpepin.com/comixtoon"
+          isShowing={true}
+        />
+        <Piece
+          imageSrc="http://placekitten.com/300/500"
+          projectLink="http://www.benpepin.com"
+          isShowing={false}
+        />
       </div>
 
     );
@@ -15,3 +25,5 @@ class App extends Component {
 }
 
 export default App;
+//
+//"http://www.benpepin.com/comixtoon"
