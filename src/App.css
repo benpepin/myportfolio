@@ -4,3 +4,54 @@
   color: #1B7BFF;
   font-size: 64px;
 }
+
+.h2 {
+  margin-left: 100px;
+  text-align: left;
+  color: #1B7BFF;
+  font-size: 32px;
+}
+
+.Buttongood {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #1e1e1e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 32px;
+  font-style: italic;
+  font-family: ;;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.Buttongood:hover {
+    box-shadow: 0 0 0 0 rgba(0,0,0,0.01), 10px 10px 5px 1px rgba(0,0,0,0.21);
+    background-color: #1B7BFF;
+}
+
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.Buttonbad {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #ffffff;
+  border: none;
+  color: #1e1e1e;
+  text-align: center;
+  font-size: 16px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 2px;
+}

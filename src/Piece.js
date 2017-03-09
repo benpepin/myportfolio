@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-
+import './App.css';
 class Piece extends Component {
+
   maybeShow() {
     let projectLink = this.props.projectLink
     if (this.props.isShowing) {
       return (
-        <div>
+        <div className="h2">
+          <h2>Hey Thanks!</h2>
           <a href={projectLink}> Read about the case study here</a>
-          <p>Hey Thanks!</p>
+
         </div>
       )
     } else {
@@ -23,9 +25,20 @@ class Piece extends Component {
 
       <div className="Piece">
         <img src={imageSrc} />
-        <button>I like it!</button>
-        <button>I hate it!</button>
         { this.maybeShow() }
+
+
+        <div className="Buttongood">
+          I like it!
+        </div>
+
+        <div className="Buttonbad">
+          I hate it!
+        </div>
+
+
+
+
 
       </div>
 
