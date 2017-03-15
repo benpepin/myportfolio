@@ -1,64 +1,106 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import Project from './Project.js';
+import projects from './data/Projects.js'
+
 import './App.css';
-import Piece from './Piece.js';
 
-const projects = [
-  {
-    src: "https://static1.squarespace.com/static/55b3be84e4b07dd5b896634d/t/56f9a473b654f9c06ed434e4/1459201446427/",
-  },
-  {
-    src: "https://static1.squarespace.com/static/55b3be84e4b07dd5b896634d/56cbe85ecf80a1fc057b688b/56cbe860c2ea518471deaf86/1456203891649/Discover.png?format=300w",
-  },
-  {
-    src: "http://placecorgi.com/250",
-  },
-]
+const App = React.createClass({
+    getInitialState: function() {
+        return ({
+            projects: projects,
+            answers: [],
+        })
+    },
 
-function pieceFromProject(project) {
-  return (<Piece
-    imageSrc={project.src}
-    projectLink="http://www.benpepin.com/comixtoon"
-    isShowing={true}
-  />)
-}
+    calculateScore: function() {
+        const answers = this.state.answers
+        let score = 0;
 
-class App extends Component {
+        for (let i = 0; i < answers.length; i++) {
+            if ( answers[i] === "like" ) {
+                score += 1
+            }
+        }
 
-  constructor(props) {
-    super(props);
+        return( score );
+    },
 
-    this.state = { numberShowing: 1 };
-  }
+    answerQuestion: function(answerIndex, answer) {
+        return () => {
+            this.setState(({answers}, _props) => {
+                let newAnswers = answers;
+                newAnswers[answerIndex] = answer;
 
-  showAdditional() {
-    this.setState({
-      numberShowing: this.state.numberShowing + 1
-    });
-  }
+                return( newAnswers );
+            });
+        }
+    },
 
-  showProjects() {
-    console.log("showing projects")
-    console.log(this)
-    return (
-      projects.slice(0, this.state.numberShowing).map((project) => pieceFromProject(project))
-    )
-  }
+    projectIsShowing: function(questionIndex) {
+        if (questionIndex === 0) {
+            // always show the first one
+            return( true )
+        } else {
+            // otherwise, show if the previous answer exists
+            const previousQuestionAnswer = this.state.answers[questionIndex - 1];
+            return( typeof previousQuestionAnswer !== "undefined" )
+        }
+    },
 
-  render() {
-    return (
+    renderProjects: function() {
+        const projects = this.state.projects
+        const answers = this.state.answers
 
-      <div className="App" >
-        <h1 onClick={this.showAdditional.bind(this)}>Ben Designed This...</h1>
-        <div className="projects">
-          {this.showProjects()}
-        </div>
-        <h1>{this.state.numberShowing}</h1>
-      </div>
+        let projectComponents = [];
 
-    );
-  }
-}
+        for (let i = 0; i < projects.length; i++) {
+            let project = projects[i];
+            let isShowing = this.projectIsShowing(i)
+            let answer = answers[i]
 
-export default App;
-//
-//"http://www.benpepin.com/comixtoon"
+            projectComponents[i] =
+                <Project
+                    project={project}
+                    answerQuestion={this.answerQuestion}
+                    index={i}
+                    isShowing={isShowing}
+                    answer={answer}
+                    key={"key" + i}
+                />
+        }
+
+        return( projectComponents )
+    },
+
+    renderScore: function() {
+        const answers = this.state.answers;
+        const projects = this.state.projects;
+
+        if (answers.length === projects.length) {
+            return (
+                <h1>You scored: {this.calculateScore()}/{projects.length}</h1>
+            )
+        } else {
+            return ( null )
+        }
+    },
+
+    render() {
+        return (
+            <div className="App" >
+                <h1>Ben Designed This...</h1>
+
+                <div className="App-projects">
+                    { this.renderProjects() }
+                </div>
+
+                <div className="App-score">
+                    { this.renderScore() }
+                </div>
+            </div>
+        );
+    },
+});
+
+ export default App;

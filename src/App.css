@@ -13,107 +13,31 @@
   font-weight: 600;
 }
 
-.h1{  margin-left: 100px;
-  margin-right: 100px;
-  text-align: left;
-  color: #1B7BFF;
-  font-size: 40px;
-  font-family: 'work sans';
-  font-weight: 600;}
+.h1{
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+    color: #1B7BFF;
+    font-size: 40px;
+    font-family: 'work sans';
+    font-weight: 600;
+}
 
 .h2 {
-  text-align: left;
-  color: #1B7BFF;
-  font-size: 16px;
-  font-family: 'work sans';
-  font-weight: 400;;
-  float: right;
-  padding-top: 10px;
-  padding-right: 100px;
+    text-align: left;
+    color: #1B7BFF;
+    font-size: 16px;
+    font-family: 'work sans';
+    font-weight: 400;;
+    float: right;
+    padding-top: 10px;
+    padding-right: 100px;
 }
 
 .h3 {
-  text-align: justify;
-  color: #1B7BFF;
-  font-size: 32px;
-  font-family: 'work sans';
+    text-align: justify;
+    color: #1B7BFF;
+    font-size: 32px;
+    font-family: 'work sans';
 }
 
-.Buttongood {
-  display: inline-block;
-  border-radius: 4px;
-  opacity: .80;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-family: 'Fredoka One';
-  font-size: 32px;
-  font-weight: lighter;
-  letter-spacing: 2px;
-  padding: 20px;
-  margin: 40px;
-  width: 200px;
-  margin-left: 60px;
-  transition: all 0.15s;
-  cursor: pointer;
-  background-color: #1B7BFF;
-
-
-
-  }
-
-.Buttongood:hover {
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.01), 10px 10px 5px 1px rgba(0,0,0,0.1);
-    background-color: #1B7BFF;
-    transform: translate(-2px, -2px);
-    opacity: 1;
-
-}
-
-
-.Buttongood:active {
-  background-color: #1459BA;
-  box-shadow: 0 1px #666;
-  transform: translate(2px, 2px);
-  color: #FCFCFC;
-}
-
-
-.Buttonbad {
-  display: inline-block;
-  border-radius: 4px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  opacity: .80;
-  background-color: #1e1e1e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-family: 'Fredoka One';
-  font-size: 32px;
-  font-weight: lighter;
-  letter-spacing: 2px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-
-
-
-  }
-
-.Buttonbad:hover {
-    box-shadow: 0 0 0 0 rgba(0,0,0,0.01), 10px 10px 5px 1px rgba(0,0,0,0.1);
-    background-color: #222222;
-    transform: translate(-2px, -2px);
-    opacity: 1;
-}
-
-.Buttonbad:active {
-  background-color: #000000;
-  box-shadow: 0 1px #666;
-  transform: translate(2px, 2px);
-  color: #555555;
-}
