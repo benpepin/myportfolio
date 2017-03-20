@@ -16,13 +16,18 @@ const Project = React.createClass({
     },
 
     renderResponse: function(answer) {
+        const project = this.props.project;
         if ( answer === "like" ) {
             return(
+              <div>
                 <h2>Thanks</h2>
+                <a href={ project.link }>Check out the case study here!</a>
+
+              </div>
             )
         } else if ( answer === "hate" ) {
             return(
-                <h2>You're a jerk</h2>
+                <h2>Youre a jerk</h2>
             )
         } else {
             return( null )
